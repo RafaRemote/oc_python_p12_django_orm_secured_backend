@@ -12,23 +12,23 @@ app uses:
 
 In a Command Line Interface:
 
-| Comment                                    | Folder             | Instruction                                                       |
-|--------------------------------------------|--------------------|-------------------------------------------------------------------|
-| clone the repository                       | wherever you want  | git clone https://github.com/RafaRemote/dapy_p12_epic_events.git  |
-| change directory to the cloned repo        | same as previously | cd dapy_p12_epic_events                                           |
-| create a virtual environment               | root               | python -m venv env                                                |
-| activate the virtual environment           | root               | source env/bin/activate                                           |
-| upgrade pip                                | root               | pip install --upgrade pip                                         |
-| install the dependencies                   | root               | pip install -r requirements.txt                                   |
+| Comment                                    | Folder                | Instruction                                                             |
+|--------------------------------------------|-----------------------|-------------------------------------------------------------------------|
+| clone the repository                       | folder of your choice | ```git clone https://github.com/RafaRemote/dapy_p12_epic_events.git```  |
+| change directory to the cloned repo        | same as previously    | ```cd dapy_p12_epic_events```                                           |
+| create a virtual environment               | root                  | ```python -m venv env```                                                |
+| activate the virtual environment           | root                  | ```source env/bin/activate```                                           |
+| upgrade pip                                | root                  | ```pip install --upgrade pip```                                         |
+| install the dependencies                   | root                  | ```pip install -r requirements.txt```                                   |
 
-==> Check if the version if your interpreter is Pyton 3.9.2
+==> Check if the version of your interpreter is Python 3.9.2
 
 ## Run the application
 
 | Comment                                    | Folder             | Instruction                                                       |
 |--------------------------------------------|--------------------|-------------------------------------------------------------------|
-| change to root directory                   | root               | cd epicevents                                                     |
-| run the server                             | same as previously | python manage.py runserver                                        |
+| change to root directory                   | chose folder       | ```cd epicevents```                                               |
+| run the server                             | root               | ```python manage.py runserver```                                  |
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
@@ -44,14 +44,9 @@ Tests checks these below conditions:
 
 ## Run the tests
 
-In the Command Line Interface, type:
+In the Command Line Interface:
 
-```python manage.py test```
-
-or ```python manage.py test -v 2``` to have more details.
-
-
-| Comment                                    | Folder             | Instruction                                                       |
-|--------------------------------------------|--------------------|-------------------------------------------------------------------|
-| change to root directory                   | root               | cd epicevents                                                     |
-| run the server                             | same as previously | python manage.py runserver                                        |
+| Comment                                    | Folder             | Instruction                                                  |
+|--------------------------------------------|--------------------|--------------------------------------------------------------|
+| run tests                                  | root               | ```python manage.py test```                                  |
+| run tests with verbose option              | root               | ```python manage.py test -v 2```                             |
