@@ -1,6 +1,16 @@
-# dapy_p12_epic_events
+# Epic Events: Develop a secured back-end architecture using Django ORM
 
-## Feature one: app uses Django and PostgreSQL
+## Summary
+
+| #               | Feature                                     |
+|-----------------|---------------------------------------------|
+|[1](#feature-one)| app uses Django and PostgreSQL              |
+|[2](#feature-two)| adds connexion page for users               |
+
+
+
+## #Feature one 
+### app uses Django and PostgreSQL
 
 app uses:
 
@@ -8,7 +18,7 @@ app uses:
 - Django (version 3.0+)
 - PostgreSQL database(version 12.0+)
 
-## Installation
+#### Installation
 
 In a Command Line Interface:
 
@@ -23,7 +33,7 @@ In a Command Line Interface:
 
 ==> Check if the version of your interpreter is Python 3.9.2
 
-## Run the application
+#### Run the application
 
 | Comment                                    | Folder             | Instruction                                                       |
 |--------------------------------------------|--------------------|-------------------------------------------------------------------|
@@ -32,7 +42,7 @@ In a Command Line Interface:
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
-## Tests
+#### Tests
 
 Tests checks these below conditions:
 
@@ -42,7 +52,7 @@ Tests checks these below conditions:
 | Django                       | 3.0+           |
 | PostgreSQL                   | 12.0+          |
 
-## Run the tests
+#### Run the tests
 
 In the Command Line Interface:
 
@@ -50,3 +60,8 @@ In the Command Line Interface:
 |--------------------------------------------|--------------------|--------------------------------------------------------------|
 | run tests                                  | root               | ```python manage.py test```                                  |
 | run tests with verbose option              | root               | ```python manage.py test -v 2```                             |
+
+## #Feature two 
+### adds a connexion page for users
+
+#### 
