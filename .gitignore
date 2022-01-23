@@ -1,3 +1,4 @@
 env/
 *pycache*
 .coverage
+draft.py

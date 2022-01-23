@@ -7,12 +7,12 @@ class SettingsTestCase(TestCase):
     """Class to test dependencies versions"""
 
     def test_django_version_is_at_least_3(self):
-        """Checks if Django version is greater or equal than 3"""
+        """\033[1;34m Check Django version 3.0+\u001b[37m"""
         self.assertGreaterEqual(django.VERSION[0], 3)
 
     def test_python_version_is_three(self):
         """
-        Checks if Python version is 3
+        \033[1;34m Check Python version 3\u001b[37m
         if Django version is at least 3 then the app use Python 3
         https://docs.djangoproject.com/en/4.0/faq/install/
 
@@ -20,5 +20,5 @@ class SettingsTestCase(TestCase):
         self.assertGreaterEqual(django.VERSION[0], 3)
 
     def test_postgresql_version(self):
-        """Checks if PostgreSQL version is greater or equal to 12.0"""
+        """\033[1;34m Check PostgreSQL version 12.0+\u001b[37m"""
         self.assertGreaterEqual(connection.cursor().connection.server_version, 120000)
