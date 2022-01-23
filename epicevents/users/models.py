@@ -22,14 +22,14 @@ class EpicUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, role, password):
+    def create_superuser(self, username, password):
         """
         Creates and saves superuser using given username, role and password
         """
         user = self.create_user(
             username,
             password=password,
-            role=role,
+            role="management",
         )
         user.is_staff = True
         user.is_admin = True
@@ -52,7 +52,7 @@ class EpicUser(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["role"]
+    # REQUIRED_FIELDS = ["role"]
 
     objects = EpicUserManager()
 

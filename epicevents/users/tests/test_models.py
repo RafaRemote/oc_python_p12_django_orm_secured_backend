@@ -44,15 +44,14 @@ class UsersManagersTests(TestCase):
         """Check models: create superuser"""
         User = get_user_model()
         superadmin_user = User.objects.create_superuser(
-            username="superadmin", role="management", password="1q2w#E$R"
+            username="superadmin", password="1q2w#E$R"
         )
         self.assertEqual(superadmin_user.username, "superadmin")
-        self.assertTrue(superadmin_user.role, "management")
         self.assertTrue(superadmin_user.is_active)
         self.assertTrue(superadmin_user.is_staff)
         self.assertNotEqual(superadmin_user.role, "support")
         self.assertIsNotNone(superadmin_user.username)
         with self.assertRaises(IntegrityError):
             User.objects.create_superuser(
-                username="superadmin", role="management", password="foo"
+                username="superadmin", password="foo"
             )
