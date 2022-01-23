@@ -18,6 +18,21 @@ app uses:
 - Django (version 3.0+)
 - PostgreSQL database(version 12.0+)
 
+#### Installation
+
+
+In a Command Line Interface:
+
+| Comment                                    | Folder                | Instruction                                                             |
+|--------------------------------------------|-----------------------|-------------------------------------------------------------------------|
+| clone the repository                       | folder of your choice | ```git clone https://github.com/RafaRemote/dapy_p12_epic_events.git```  |
+| change directory to the cloned repo        | same as previously    | ```cd dapy_p12_epic_events```                                           |
+| create a virtual environment               | root                  | ```python -m venv env```                                                |
+| activate the virtual environment           | root                  | ```source env/bin/activate```                                           |
+| upgrade pip                                | root                  | ```pip install --upgrade pip```                                         |
+| install the dependencies                   | root                  | ```pip install -r requirements.txt```                                   |
+
+==> **Check if the version of your interpreter is Python 3.9.2**
 
 #### Database configuration
 
@@ -37,22 +52,6 @@ Assign the values of your database settings freshly created to the variables bel
 | DB_PASSWORD                           |
 | DB_HOST                               |
 | DB_PORT                               |
-
-#### Installation
-
-
-In a Command Line Interface:
-
-| Comment                                    | Folder                | Instruction                                                             |
-|--------------------------------------------|-----------------------|-------------------------------------------------------------------------|
-| clone the repository                       | folder of your choice | ```git clone https://github.com/RafaRemote/dapy_p12_epic_events.git```  |
-| change directory to the cloned repo        | same as previously    | ```cd dapy_p12_epic_events```                                           |
-| create a virtual environment               | root                  | ```python -m venv env```                                                |
-| activate the virtual environment           | root                  | ```source env/bin/activate```                                           |
-| upgrade pip                                | root                  | ```pip install --upgrade pip```                                         |
-| install the dependencies                   | root                  | ```pip install -r requirements.txt```                                   |
-
-==> **Check if the version of your interpreter is Python 3.9.2**
 
 #### Run the application
 
@@ -75,7 +74,7 @@ Tests checks these below conditions:
 
 #### Run the tests
 
-In the Command Line Interface:
+In a Command Line Interface (be sure to be in the same folder as the one containing the file manage.py).  
 
 | Comment                                    | Folder             | Instruction                                                  |
 |--------------------------------------------|--------------------|--------------------------------------------------------------|
@@ -98,10 +97,18 @@ In order to save the changes to the database type:
 
 #### Access to admin login page
 
-First: create a super user, in the CLI type: ```python manage.py createsuperuser```
+First: in the CLI, create a super user, type: ```python manage.py createsuperuser```
 
 In your web browser navigate to http://127.0.0.1:8000/admin/
 
+You can access the admin page with the credentials you have entered for the superuser.  
+
+On the admin page you can create users.  
+There is three roles available for the users: management, sales or support.  
+Only the users with a management role will be able to access to the admin page.  
+
+You can try to create users for management, sales and support the try to login to the admin site.  
+You will see that only the users with a management role can access the admin site.  
 
 #### Additional Tests for Feature 2 / Adds a connexion page for users
 
