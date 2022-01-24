@@ -3,14 +3,18 @@ from .models import EpicUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
+
 class EpicUserCreationForm(forms.ModelForm):
     """Form to create EpicUser"""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Password confirmation", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = EpicUser
-        fields = ('username', 'role')
+        fields = ("username", "role")
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -31,12 +35,13 @@ class EpicUserCreationForm(forms.ModelForm):
 
 class EpicUserChangeForm(forms.ModelForm):
     """Form to update EpicUser"""
+
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = EpicUser
-        fields = ('username', 'password', "role", 'is_active', 'is_admin')
-        
+        fields = ("username", "password", "role", "is_active", "is_admin")
+
     def save(self, commit=True):
         user = super().save(commit=False)
         if user.role == "management":
@@ -47,7 +52,7 @@ class EpicUserChangeForm(forms.ModelForm):
             user.is_staff = False
             user.is_admin = False
             user.is_superuser = False
-            
+
         if commit:
             user.save()
         return user

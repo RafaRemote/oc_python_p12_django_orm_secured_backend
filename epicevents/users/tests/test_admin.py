@@ -9,9 +9,7 @@ class AdminPageTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         User = get_user_model()
-        User.objects.create_superuser(
-            username="jeanduc", password="1q2w#E$R"
-        )
+        User.objects.create_superuser(username="jeanduc", password="1q2w#E$R")
         User.objects.create_user(username="camille", role="sales", password="1q2w#E$R")
         User.objects.create_user(username="gerard", role="support", password="1q2w#E$R")
 

@@ -1,8 +1,5 @@
-from email.policy import default
 from django.db import models
-from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
 class EpicUserManager(BaseUserManager):
@@ -41,6 +38,7 @@ class EpicUser(AbstractBaseUser):
         MANAGEMENT = ("management",)
         SUPPORT = ("support",)
         SALES = "sales"
+
     username = models.CharField(max_length=150, unique=True, null=False, blank=False)
     role = models.fields.CharField(choices=Department.choices, max_length=20)
     is_active = models.BooleanField(default=True)
@@ -50,7 +48,7 @@ class EpicUser(AbstractBaseUser):
 
     objects = EpicUserManager()
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = "username"
     # REQUIRED_FIELDS = ['']
 
     def __str__(self):

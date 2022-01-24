@@ -52,6 +52,4 @@ class UsersManagersTests(TestCase):
         self.assertNotEqual(superadmin_user.role, "support")
         self.assertIsNotNone(superadmin_user.username)
         with self.assertRaises(IntegrityError):
-            User.objects.create_superuser(
-                username="superadmin", password="foo"
-            )
+            User.objects.create_superuser(username="superadmin", password="foo")
