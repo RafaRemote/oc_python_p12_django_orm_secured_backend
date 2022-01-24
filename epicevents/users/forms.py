@@ -3,21 +3,17 @@ from .models import EpicUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-
-class UserCreationForm(forms.ModelForm):
-    """Form to create new users. Includes all required fields, plus repeated password."""
-
-    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label="Password confirmation", widget=forms.PasswordInput
-    )
+class EpicUserCreationForm(forms.ModelForm):
+    """Form to create EpicUser"""
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
         model = EpicUser
-        fields = ("username", "role")
+        fields = ('username', 'role')
 
     def clean_password2(self):
-        # Check if password entries match
+        # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
@@ -25,37 +21,33 @@ class UserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
+        # Save the provided password in hashed format
         user = super().save(commit=False)
-        if user.role == "management":
-            user.is_superuser = True
-            user.is_admin = True
-            user.is_staff = True
-        else:
-            user.is_admin = False
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
         return user
 
 
-class UserChangeForm(forms.ModelForm):
-    """Form to update users. Includes all fields on
-    user, but replaces password field with admin's
-    disabled password hash display field.
-    """
-
+class EpicUserChangeForm(forms.ModelForm):
+    """Form to update EpicUser"""
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = EpicUser
-        fields = ("username", "role")
-
+        fields = ('username', 'password', "role", 'is_active', 'is_admin')
+        
     def save(self, commit=True):
         user = super().save(commit=False)
         if user.role == "management":
+            user.is_staff = True
             user.is_admin = True
+            user.is_superuser = True
         else:
+            user.is_staff = False
             user.is_admin = False
+            user.is_superuser = False
+            
         if commit:
             user.save()
         return user

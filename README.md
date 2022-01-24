@@ -2,10 +2,11 @@
 
 ## Summary
 
-| #               | Feature                                     |
-|-----------------|---------------------------------------------|
-|[1](#feature-one)| app uses Django and PostgreSQL              |
-|[2](#feature-two)| adds connexion page for users               |
+| #                 | Feature                                     |
+|-------------------|---------------------------------------------|
+|[1](#feature-one)  | app uses Django and PostgreSQL              |
+|[2](#feature-two)  | adds connexion page for users               |
+|[3](#feature-three)| adds connexion page for users               |
 
 
 
@@ -131,3 +132,18 @@ In the Command Line Interface:
 | run tests                                  | root               | ```python manage.py test```                                  |
 | run tests with verbose option and colors   | root               | ```python manage.py test -v 2```                             |
 
+
+## #Feature three
+### Application handles models
+
+
+| Models handled by the application   
+|-------------------------------------|
+| Account                             |
+| Contract                            |
+| Event                               |
+| Status                              |
+
+To populate the Status table, in the CLI: change on the root folder and type:  
+
+```python manage.py loaddata status/fixtures/status.json```

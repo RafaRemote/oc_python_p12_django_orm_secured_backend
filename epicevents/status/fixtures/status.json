@@ -1,0 +1,30 @@
+[
+    {
+      "model": "status.Status",
+      "pk": 1,
+      "fields": {
+        "status": "planning"
+      }
+    },
+    {
+      "model": "status.Status",
+      "pk": 2,
+      "fields": {
+        "status": "live"
+      }
+    },
+    {
+      "model": "status.Status",
+      "pk": 3,
+      "fields": {
+        "status": "terminated"
+      }
+    },
+    {
+      "model": "status.Status",
+      "pk": 4,
+      "fields": {
+        "status": "cancelled"
+      }
+    } 
+]
