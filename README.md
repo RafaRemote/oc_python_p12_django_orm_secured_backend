@@ -7,7 +7,7 @@
 |[1](#feature-one)  | app uses Django and PostgreSQL                |
 |[2](#feature-two)  | adds connexion page for users                 |
 |[3](#feature-three)| adds models Account, Contract, Event, Status  |
-|[4](#feature-four) | (soon)                                        |
+|[4](#feature-four) | adds two django groups                        |
 |[5](#feature-five) | (soon)                                        |
 |[6](#feature-six)  | (soon)                                        |
 |[7](#tests)        | tests for all the implemented features        |
@@ -151,8 +151,37 @@ The cannot:
 - Delete a status. Event has always a status linked to them.
 
 ## #Feature four
+### Application handles new models
 
-New Feature soon  
+
+There is three teams:
+
+- management,
+- sales,
+- support.
+
+CRM users from management team are the the admins. They are the only one to use the django admin website.  
+
+The two other teams represent two different groups. The table below show what they can respectively do.
+
+
+**GROUP SALES**
+
+| Action           | Object    | Notes                                         |
+|------------------|-----------|-----------------------------------------------|
+| CREATE           | Account   |                                               |
+| READ UPDATE      | Account   | the ones they are assigned to                 |
+| READ UPDATE      | Contract  | the ones of the clients they are assigned to  |
+| CREATE           | Event     |                                               |
+
+
+**GROUP SUPPORT**
+
+| Action           | Object    | Notes                                           |
+|------------------|-----------|-------------------------------------------------|
+| READ UPDATE      | Event     | the ones they are assigned to                   |
+| READ             | Account   | the ones that they are assigned to their events |
+
 
 ## #Feature five
 
@@ -192,6 +221,14 @@ In the tables, you will find what are the purposes of the tests.
 | Contract                                      | yellow                          |
 | Event                                         | yellow                          |
 | Status                                        | yellow                          |
+
+
+#### Tests for Feature 4 / Adds django groups **NOT IMPLEMENTED YET**
+
+| Groups Authorizationos                        | color code in the cli           | 
+|-----------------------------------------------|---------------------------------|
+| Sales                                         | cyan                            |
+| Support                                       | cyan                            |
 
 #### Run the tests
 
