@@ -160,7 +160,7 @@ There is three teams:
 - sales,
 - support.
 
-CRM users from management team are the the admins. They are the only one to use the django admin website.  
+CRM users from management team are the admins. They are the only ones to use the django admin website.  
 
 The two other teams represent two different groups. The table below show what they can respectively do.
 
