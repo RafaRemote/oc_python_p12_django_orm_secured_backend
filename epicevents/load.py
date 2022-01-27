@@ -6,7 +6,7 @@ def load():
     django.setup()
     from django.contrib.auth import get_user_model
     from account.models import Account
-    from status.models import Status
+    # from status.models import Status
     
     dict_users = { 
     "username": ["charles", "camille", "robert"],
@@ -17,7 +17,7 @@ def load():
     "is_superuser": ["True", "False", "False"]
     }
     
-    list_status = ["planning", "live", "terminated", "cancelled", "suspended", "postponed"]
+    # list_status = ["planning", "live", "terminated", "cancelled", "suspended", "postponed"]
 
     User=get_user_model()
     User.objects.create_superuser("remi", "1q2w#E$R")
@@ -29,8 +29,8 @@ def load():
     new_account = Account(1, "leo", "dupres", "leo@dupres.com", sales_contact=seller)
     new_account.save()
 
-    for i in list_status:
-        Status.objects.create(status=i)
+    # for i in list_status:
+    #     Status.objects.create(status=i)
 
 if __name__ == '__main__':
     load()
