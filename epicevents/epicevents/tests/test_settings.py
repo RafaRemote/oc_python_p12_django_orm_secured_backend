@@ -17,7 +17,7 @@ class SettingsTestCase(TestCase):
         https://docs.djangoproject.com/en/4.0/faq/install/
 
         """
-        self.assertGreaterEqual(django.VERSION[0], 3)
+        self.test_django_version_is_at_least_3()
 
     def test_postgresql_version(self):
         """\033[1;34m Check PostgreSQL version 12.0+\u001b[37m"""
