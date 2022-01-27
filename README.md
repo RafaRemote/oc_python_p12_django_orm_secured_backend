@@ -47,7 +47,7 @@ Same with pgAdmin4: link => [download pgAdmin4](https://www.pgadmin.org/download
 
 Then: create a database with the settings of your choice.  
 
-In the root folder, rename the file ```.env.template``` to ```.env```  
+In the root folder, rename the file ```.template``` to ```.env```  
 Assign the values of your database settings freshly created to the variables below.  
 **do not use quotes or double quotes** Correct example: ```DB_NAME=database```    
 
@@ -82,7 +82,7 @@ In order to save the changes to the database type:
 
 | Comment                                    | Folder             | Instruction                                                  |
 |--------------------------------------------|--------------------|--------------------------------------------------------------|
-| prepare the migration files                | root               | ```python manage.py makemigrations users```                  |
+| prepare the migration files                | root               | ```python manage.py makemigrations```                        |
 | migrate to the database                    | root               | ```python manage.py migrate```                               |
 
 
