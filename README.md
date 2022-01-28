@@ -4,7 +4,7 @@
 
 ## Summary
 
-The 6 first features have been developped according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
+The 6 first features have been developed according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
 
 | #                 | Title                                                        |
 |-------------------|--------------------------------------------------------------|
