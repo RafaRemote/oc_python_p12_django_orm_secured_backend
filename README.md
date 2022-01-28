@@ -4,7 +4,7 @@
 
 ## Summary
 
-The 6 first features have been developped according to the technical requirements
+The 6 first features have been developped according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
 
 | #                 | Title                                                        |
 |-------------------|--------------------------------------------------------------|
@@ -183,7 +183,7 @@ The two other teams represent two different groups. The table below show what th
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-## Feature five: soon  
+### Feature five: soon  
 
 ### Feature six: soon
 
@@ -234,3 +234,6 @@ In the Command Line Interface:
 |--------------------------------------------|--------------------|----------------------------------|
 | run tests                                  | root               | ```python manage.py test```      |
 | run tests with verbose option and colors   | root               | ```python manage.py test -v 2``` |
+
+
+### Optimization: soon
