@@ -1,20 +1,24 @@
-# Epic Events: Develop a secured back-end architecture using Django ORM
+# Openclassrooms Path: Python Developer
+# Project n.12: Develop a secured back-end architecture using Django ORM
+## CRM Software Epic-Events 
 
 ## Summary
 
-| #                 | Feature                                       |
-|-------------------|-----------------------------------------------|
-|[1](#feature-one)  | app uses Django and PostgreSQL                |
-|[2](#feature-two)  | adds connexion page for users                 |
-|[3](#feature-three)| adds models Account, Contract, Event, Status  |
-|[4](#feature-four) | adds two django groups                        |
-|[5](#feature-five) | (soon)                                        |
-|[6](#feature-six)  | (soon)                                        |
-|[7](#tests)        | tests for all the implemented features        |
+The 6 first features have been developped according to the technical requirements
+
+| #                 | Title                                                        |
+|-------------------|--------------------------------------------------------------|
+|[1](#feature-one)  | Feature one: app uses Django and PostgreSQL                  |
+|[2](#feature-two)  | Feature two: adds connexion page for users                   |
+|[3](#feature-three)| Feature three: adds models Account, Contract, Event, Status  |
+|[4](#feature-four) | Feature four: adds two django groups                         |
+|[5](#feature-five) | Feature five: (soon)                                         |
+|[6](#feature-six)  | Feature six: (soon)                                          |
+|[7](#tests)        | Tests: tests for all the implemented features                |
+|[8](#optimization) | Optimization: propositions                                   |
 
 
-## #Feature one 
-### app uses Django and PostgreSQL
+### Feature one: app uses Django and PostgreSQL
 
 app uses:
 
@@ -71,10 +75,9 @@ _the root folder is the directory 'epicevents' containing the manage.py file_
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
 
-## #Feature two 
-### Adds a connexion page for users
+### Feature two: connexion page for users
 
-#### Migrations
+### Migrations
 
 You can let the server run in the first terminal and open a second terminal.  
 A custom user model have been created.  
@@ -86,7 +89,7 @@ In order to save the changes to the database type:
 | migrate to the database                    | root               | ```python manage.py migrate```                               |
 
 
-#### Access to admin login page
+### Access to admin login page
 
 
 First: in the CLI, create a super user, type: ```python manage.py createsuperuser```  
@@ -107,8 +110,7 @@ Only the users with a management role can access to the admin page.
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
 
-## #Feature three
-### Application handles new models
+### Feature three: application handles new models
 
 There is four new apps in this project.  
 Four new main models are handled by the application, they have the same name as the apps.  
@@ -121,7 +123,7 @@ On the admin main page you will the presence of theses four new models.
 | Event                               |
 | Status                              |
 
-#### Migrationns
+#### Migrations
 
 In the CLI:
 
@@ -142,7 +144,7 @@ You have two options:
 In the admin site, providing that you are a superuser you can now:
 - Create, Read, Update or Delete an Account,
 - Create, Read, Update or Delete a Contract,
-- Read, Update or Delete an Event,
+- Read, Update an Event,
 - Create a Status.
 
 The cannot:
@@ -150,9 +152,7 @@ The cannot:
 - Delete an Event. Event is deleted when the linked contract it deleted.  
 - Delete a status. Event has always a status linked to them.
 
-## #Feature four
-### Application handles new models
-
+## Feature four: application handles new groups
 
 There is three teams:
 
@@ -183,15 +183,12 @@ The two other teams represent two different groups. The table below show what th
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-## #Feature five
+## Feature five: soon  
 
-New Feature soon  
+### Feature six: soon
 
-## #Feature six
 
-New Feature soon  
-
-## #Tests
+### Tests
 
 In the tables, you will find what are the purposes of the tests.
 
@@ -221,7 +218,6 @@ In the tables, you will find what are the purposes of the tests.
 | Contract                                      | yellow                          |
 | Event                                         | yellow                          |
 | Status                                        | yellow                          |
-
 
 #### Tests for Feature 4 / Adds django groups **NOT IMPLEMENTED YET**
 
