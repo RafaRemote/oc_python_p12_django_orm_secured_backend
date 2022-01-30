@@ -1,4 +1,6 @@
-# Epic Events: Develop a secured back-end architecture using Django ORM
+# Openclassrooms Path: Python Developer
+# Project n.12: Develop a secured back-end architecture using Django ORM
+## CRM Software Epic-Events 
 
 - Work in progress
 
