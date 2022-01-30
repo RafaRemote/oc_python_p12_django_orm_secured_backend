@@ -11,7 +11,7 @@ The 6 first features have been developed according to the technical requirements
 |[1](#feature-one)  | Feature one: app uses Django and PostgreSQL                  |
 |[2](#feature-two)  | Feature two: adds connexion page for users                   |
 |[3](#feature-three)| Feature three: adds models Account, Contract, Event, Status  |
-|[4](#feature-four) | Feature four: adds two django groups                         |
+|[4](#feature-four) | Feature four: adds two django groups with permissions        |
 |[5](#feature-five) | Feature five: (soon)                                         |
 |[6](#feature-six)  | Feature six: (soon)                                          |
 |[7](#tests)        | Tests: tests for all the implemented features                |
@@ -67,10 +67,10 @@ Assign the values of your database settings freshly created to the variables bel
 
 _the root folder is the directory 'epicevents' containing the manage.py file_
 
-| Comment                                    | Folder             | Instruction                                                       |
-|--------------------------------------------|--------------------|-------------------------------------------------------------------|
-| change to root directory                   | chosen folder      | ```cd epicevents```                                               |
-| run the server                             | root               | ```python manage.py runserver```                                  |
+| Comment                                    | Folder             | Instruction                                                |
+|--------------------------------------------|--------------------|------------------------------------------------------------|
+| change to root directory                   | chosen folder      | ```cd epicevents```                                        |
+| run the server                             | root               | ```python manage.py runserver```                           |
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
@@ -83,30 +83,61 @@ You can let the server run in the first terminal and open a second terminal.
 A custom user model have been created.  
 In order to save the changes to the database type:  
 
-| Comment                                    | Folder             | Instruction                                                  |
-|--------------------------------------------|--------------------|--------------------------------------------------------------|
-| prepare the migration files                | root               | ```python manage.py makemigrations```                        |
-| migrate to the database                    | root               | ```python manage.py migrate```                               |
+| Comment                                    | Folder             | Instruction                                                 |
+|--------------------------------------------|--------------------|-------------------------------------------------------------|
+| prepare the migration files                | root               | ```python manage.py makemigrations```                       |
+| migrate to the database                    | root               | ```python manage.py migrate```                              |
 
 
 ### Access to admin login page
 
+In the root folder, typer: ```python load.py```
 
-First: in the CLI, create a super user, type: ```python manage.py createsuperuser```  
-You'll need to provide a username and a password.  
+It will populate the database with the data below:
 
-Then in your web browser navigate to http://127.0.0.1:8000/admin/  
+==> User
 
-You can access the admin page with the credentials you have entered for the superuser.  
+| username    | role           | superuser     | 
+|-------------|----------------|---------------|
+| remi        | management     | True          |
+| charles     | management     | True          |
+| camille     | sales          | False         |
+| solange     | sales          | False         |
+| gerad       | support        | False         |
+| robert      | support        | False         |
 
-On the admin page you can create users.  
+**Every users have got the same password => "1q2w#E$R"**
+
+==> Account
+
+| first name  | last name   | sales contact   | 
+|-------------|-------------|-----------------|
+| leo         | dupres      | camille         |
+
+==> Status
+
+| status        |
+|---------------|
+| planning      |
+| live          |
+| terminated    |
+| cancelled     |
+| suspended     |
+| postponed     |
+
+
 There is three roles available for the users:  
 - management
 - sales
 - support
 
-Only the users with a management role can access to the admin page.  
+Only the users with a management role can access the admin page.  
+They are considered as superusers.  
+You can access the admin page with the username and the password of the user.  
 
+To login to admin page navigate with your web browser to http://127.0.0.1:8000/admin/  
+
+On the admin page you can create users.  
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
 
@@ -114,7 +145,7 @@ You will see that only the users with a management role can access the admin sit
 
 There is four new apps in this project.  
 Four new main models are handled by the application, they have the same name as the apps.  
-On the admin main page you will the presence of theses four new models.  
+On the admin main page you will see the presence of these four models.  
 
 | Models handled by the application   |
 |-------------------------------------|
@@ -127,17 +158,10 @@ On the admin main page you will the presence of theses four new models.
 
 In the CLI:
 
-| Comment                                    | Folder             | Instruction to type                                                    |
-|--------------------------------------------|--------------------|------------------------------------------------------------------------|
-| prepare the migration files                | root               | ```python manage.py makemigrations account contract event status```    |
-| migrate to the database                    | root               | ```python manage.py migrate```                                         |
-
-You will need to populate the database in order to have statuses to use.  
-You have two options:  
-
-- option 1: create the statuses via the admin page. Status suggested: "planning", "live", "cancelled", "terminated". (you can add how many statuses you want)
-- option 2: in the root folder (_the folder named 'epicevents' containing the file 'load_statuses.py' and 'manage.py'), type : ```python load_statuses.py```, it will create the above suggested statuses.
-
+| Comment                         | Folder    | Instruction to type                                                    |
+|---------------------------------|-----------|------------------------------------------------------------------------|
+| prepare the migration files     | root      | ```python manage.py makemigrations account contract event status```    |
+| migrate to the database         | root      | ```python manage.py migrate```                                         |
 
 #### Usage
 
@@ -154,18 +178,17 @@ The cannot:
 
 ## Feature four: application handles new groups
 
-There is three teams:
+There is two groups:
+- sales team
+- support team
 
-- management,
-- sales,
-- support.
+CRM users with management role are the admins. They are the only ones to use the django admin website.  
 
-CRM users from management team are the admins. They are the only ones to use the django admin website.  
+The two other teams represent two different groups. The table below show their permissions  
 
-The two other teams represent two different groups. The table below show what they can respectively do.
+User got the permissions that are assigned to their group. 
 
-
-**GROUP SALES**
+**SALES TEAM PERMISSIONS**
 
 | Action           | Object    | Notes                                         |
 |------------------|-----------|-----------------------------------------------|
@@ -175,7 +198,7 @@ The two other teams represent two different groups. The table below show what th
 | CREATE           | Event     |                                               |
 
 
-**GROUP SUPPORT**
+**SUPPORT TEAM PERSMISSIONS**
 
 | Action           | Object    | Notes                                           |
 |------------------|-----------|-------------------------------------------------|
@@ -219,7 +242,7 @@ In the tables, you will find what are the purposes of the tests.
 | Event                                         | yellow                          |
 | Status                                        | yellow                          |
 
-#### Tests for Feature 4 / Adds django groups **NOT IMPLEMENTED YET**
+#### Tests for Feature 4 / Adds django groups
 
 | Groups Authorizationos                        | color code in the cli           | 
 |-----------------------------------------------|---------------------------------|
