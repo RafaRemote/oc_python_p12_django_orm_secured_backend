@@ -1,11 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import Group, Permission
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import Permission
 from .forms import EpicUserChangeForm, EpicUserCreationForm
 from users.models import EpicUser
-from account.models import Account
-from event.models import Event
 
 
 class EpicUserAdmin(BaseUserAdmin):
@@ -13,10 +10,7 @@ class EpicUserAdmin(BaseUserAdmin):
     add_form = EpicUserCreationForm
     list_display = ("username", "role", "is_staff", "is_admin", "is_superuser")
     list_filter = ("is_admin", "role", "groups")
-    fieldsets = (
-        (None, {"fields": ("username", "role")}),
-        ('Permissions', {'fields': ('is_admin', 'groups',)}),
-    )
+    fieldsets = ((None, {"fields": ("username", "role")}),)
     add_fieldsets = (
         (
             None,
@@ -34,13 +28,11 @@ class EpicUserAdmin(BaseUserAdmin):
 admin.site.register(EpicUser, EpicUserAdmin)
 admin.site.register(Permission)
 
-  
 
 # can_add_account = Permission.objects.get(name="Can add account")
 # can_add_event = Permission.objects.get(name="Can add event")
 
 # epicuser = EpicUser.object.get(all)
-
 
 
 # sales_team_permission = [

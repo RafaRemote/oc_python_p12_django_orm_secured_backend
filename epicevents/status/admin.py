@@ -8,6 +8,6 @@ class AccountAdmin(admin.ModelAdmin):
 
     list_display = ("status",)
     list_filter = ("status",)
-    
+
 
 admin.site.register(Status, AccountAdmin)

@@ -12,7 +12,7 @@ class Event(models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        limit_choices_to={"role": "support"}
+        limit_choices_to={"role": "support"},
     )
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     event_status = models.ForeignKey(Status, on_delete=models.PROTECT, null=True)
@@ -25,7 +25,7 @@ class Event(models.Model):
     notes = models.TextField(null=True, blank=True)
     date_created = models.DateField(auto_now_add=True)
     date_updated = models.DateField(auto_now=True)
-    
+
     def save(self, *args, **kwargs):
         created = not self.pk
         super().save(*args, **kwargs)
@@ -33,7 +33,6 @@ class Event(models.Model):
             status = Status.objects.filter(status="planning")[0]
             self.event_status = status
             self.save()
-
 
     def __str__(self):
         return (

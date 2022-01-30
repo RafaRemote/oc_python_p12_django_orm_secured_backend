@@ -45,7 +45,7 @@ class AdminPageTest(TestCase):
         )
         res = self.client.get("/admin/")
         self.assertIn("model-epicuser", res.content.decode())
-        
+
     def test_group_sales_team_is_handled(self):
         """\033[1;36m Check group sales_team is handled \u001b[37m"""
         self.assertTrue(Group.objects.get(name="sales_team"))

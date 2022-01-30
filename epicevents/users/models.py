@@ -1,6 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import (
+    BaseUserManager,
+    AbstractBaseUser,
+    PermissionsMixin,
+)
+from .groups import dispatch_user
 
 
 class EpicUserManager(BaseUserManager):
@@ -12,7 +16,7 @@ class EpicUserManager(BaseUserManager):
         if not role:
             raise ValueError("Users must have a role")
         user = self.model(username=username, role=role)
-        if user.role == "management":    
+        if user.role == "management":
             user.is_staff = True
             user.is_admin = True
             user.is_superuser = True
@@ -20,7 +24,7 @@ class EpicUserManager(BaseUserManager):
             user.save(using=self._db)
         user.set_password(password)
         user.save(using=self._db)
-        self.dispatch(user)
+        dispatch_user(user)
         return user
 
     def create_superuser(self, username, password=None):
@@ -35,14 +39,6 @@ class EpicUserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
-    
-    def dispatch(self, user):
-        sales_team, c = Group.objects.get_or_create(name='sales_team') 
-        support_team, c = Group.objects.get_or_create(name='support_team') 
-        if user.role == "sales":
-            user.groups.add(sales_team)
-        elif user.role =="support":
-            user.groups.add(support_team)
 
 
 class EpicUser(AbstractBaseUser, PermissionsMixin):
