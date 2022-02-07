@@ -11,7 +11,7 @@ class Event(models.Model):
         EpicUser,
         blank=True,
         null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.PROTECT,
         limit_choices_to={"role": "support"},
     )
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
@@ -23,8 +23,8 @@ class Event(models.Model):
         null=True, blank=True, validators=[MinValueValidator(datetime.date.today)]
     )
     notes = models.TextField(null=True, blank=True)
-    date_created = models.DateField(auto_now_add=True)
-    date_updated = models.DateField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         created = not self.pk

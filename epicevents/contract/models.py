@@ -10,12 +10,12 @@ class Contract(models.Model):
         EpicUser,
         blank=True,
         null=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.PROTECT,
         limit_choices_to={"role": "sales"},
     )
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    date_created = models.DateField(auto_now_add=True)
-    date_updated = models.DateField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
     status = models.BooleanField(default=False, verbose_name="signed")
     amount = models.FloatField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(10000000)]

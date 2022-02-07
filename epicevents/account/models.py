@@ -9,8 +9,8 @@ class Account(models.Model):
     phone = models.CharField(max_length=20, null=True, blank=True)
     mobile = models.CharField(max_length=20, null=True, blank=True)
     company_name = models.CharField(max_length=250, null=True, blank=True)
-    date_created = models.DateField(auto_now_add=True)
-    date_updated = models.DateField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
     sales_contact = models.ForeignKey(
         EpicUser,
         default=None,

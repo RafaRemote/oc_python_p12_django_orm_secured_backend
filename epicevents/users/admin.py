@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import Group
 from .forms import EpicUserChangeForm, EpicUserCreationForm
 from users.models import EpicUser
 
@@ -25,8 +25,17 @@ class EpicUserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
+class GroupsAdmin(admin.ModelAdmin):
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
 admin.site.register(EpicUser, EpicUserAdmin)
-admin.site.register(Permission)
+admin.site.unregister(Group)
+admin.site.register(Group, GroupsAdmin)
 
 
 # can_add_account = Permission.objects.get(name="Can add account")
