@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "event.apps.EventConfig",
     "status.apps.StatusConfig",
     "rest_framework",
+    "drf_api_logger",
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.contrib.auth.middleware.RemoteUserMiddleware",
+    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
+
+DRF_API_LOGGER_DATABASE = True
 
 ROOT_URLCONF = "epicevents.urls"
 
