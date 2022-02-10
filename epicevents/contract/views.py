@@ -5,6 +5,14 @@ from epicevents.permissions import IsSales
 from rest_framework.permissions import IsAuthenticated
 from django.core.exceptions import PermissionDenied
 from rest_framework.response import Response
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(name)s:%(message)s")
+file_handler = logging.FileHandler("contract.log")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 
 class ContractViewSet(viewsets.ModelViewSet):
@@ -12,6 +20,8 @@ class ContractViewSet(viewsets.ModelViewSet):
     serializer_class = ContractSerializer
     permission_classes = [IsAuthenticated, IsSales]
     http_method_names = ["get", "patch", "post"]
+
+    logger.info("ContractViewSet allowed HTTP methods {}".format(http_method_names))
 
     def get_queryset(self):
         return Contract.objects.filter(sales_contact=self.request.user).order_by("id")

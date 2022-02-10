@@ -228,7 +228,7 @@ The API is secured, based on docs provided, following requirements are fulfilled
   - HTTP methods check
 - Logging and monitoring done.
 
-(Click here for the Postman documentation)[https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9] 
+[Click here for the Postman documentation](https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9)
 
 
 ### Feature six: soon

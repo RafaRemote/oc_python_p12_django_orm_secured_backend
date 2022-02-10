@@ -4,3 +4,4 @@ env/
 draft.py
 .env
 *migrations*
+*.log
