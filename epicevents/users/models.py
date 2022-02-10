@@ -57,7 +57,7 @@ class EpicUser(AbstractBaseUser, PermissionsMixin):
     objects = EpicUserManager()
 
     USERNAME_FIELD = "username"
-    # REQUIRED_FIELDS = ['']
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.username.capitalize()

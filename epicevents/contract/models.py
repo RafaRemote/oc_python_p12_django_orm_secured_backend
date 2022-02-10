@@ -1,13 +1,13 @@
 import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from users.models import EpicUser
+from users.models import EpicUser as User
 from account.models import Account
 
 
 class Contract(models.Model):
     sales_contact = models.ForeignKey(
-        EpicUser,
+        User,
         blank=True,
         null=True,
         on_delete=models.PROTECT,

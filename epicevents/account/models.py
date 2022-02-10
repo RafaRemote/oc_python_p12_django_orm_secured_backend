@@ -5,7 +5,7 @@ from users.models import EpicUser
 class Account(models.Model):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
-    email = models.CharField(max_length=100)
+    email = models.CharField(max_length=100, unique=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
     mobile = models.CharField(max_length=20, null=True, blank=True)
     company_name = models.CharField(max_length=250, null=True, blank=True)

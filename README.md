@@ -12,7 +12,7 @@ The 6 first features have been developed according to the technical requirements
 |[2](#feature-two)  | Feature two: adds connexion page for users                   |
 |[3](#feature-three)| Feature three: adds models Account, Contract, Event, Status  |
 |[4](#feature-four) | Feature four: adds two django groups with permissions        |
-|[5](#feature-five) | Feature five: (soon)                                         |
+|[5](#feature-five) | Feature five: API                                            |
 |[6](#feature-six)  | Feature six: (soon)                                          |
 |[7](#tests)        | Tests: tests for all the implemented features                |
 |[8](#optimization) | Optimization: propositions                                   |
@@ -195,7 +195,6 @@ User got the permissions that are assigned to their group.
 | CREATE           | Account   |                                               |
 | READ UPDATE      | Account   | the ones they are assigned to                 |
 | READ UPDATE      | Contract  | the ones of the clients they are assigned to  |
-| CREATE           | Event     |                                               |
 
 
 **SUPPORT TEAM PERSMISSIONS**
@@ -206,7 +205,31 @@ User got the permissions that are assigned to their group.
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-### Feature five: soon  
+### Feature five: API
+
+API built using Django REST framework
+
+There are endpoints for models:
+- Account,
+- Contract,
+- Event
+
+The API is secured, based on docs provided, following requirements are fulfilled:
+- Language used: Python3,
+- SQL injection prevention:
+  - Using Django ORM
+  - No raw SQL requests
+- Authentication:
+  - Using Django REST framework
+  - Principle of least privilege applied
+  - Avoiding Unauthorized access
+- Security configuration:
+  - appropriate user authorization
+  - HTTP methods check
+- Logging and monitoring done.
+
+(Click here for the Postman documentation)[https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9] 
+
 
 ### Feature six: soon
 
