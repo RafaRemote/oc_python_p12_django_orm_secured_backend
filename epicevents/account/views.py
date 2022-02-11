@@ -22,6 +22,8 @@ class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = AccountSerializer
     permission_classes = [IsAuthenticated, IsBelongingToAuthorizedGroups]
     http_method_names = ["get", "put", "patch", "post"]
+    filterset_fields = ["last_name", "email"]
+    search_fields = ["last_name", "email"]
     logger.debug("AccountViewSet allowed http methods: {}".format(http_method_names))
 
     def get_queryset(self):

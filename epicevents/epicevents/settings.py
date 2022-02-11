@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-HOST = 'http://127.0.0.1:8000'
+HOST = "http://127.0.0.1:8000"
 
 # Application definition
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "status.apps.StatusConfig",
     "rest_framework",
     "drf_api_logger",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # )
 
 REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+    ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",

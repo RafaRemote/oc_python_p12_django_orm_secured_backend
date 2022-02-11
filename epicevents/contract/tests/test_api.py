@@ -11,7 +11,8 @@ class ContractAPITests(TestCase):
 
     def test_app_contract_logging(self):
         """\u001b[45m Check if logging for app contract is done\u001b[0m"""
-        User.objects.create_user(username="test_user", role="sales", password="1q2w#E$R")
+        User.objects.create_user(
+            username="test_user", role="sales", password="1q2w#E$R"
+        )
         self.client.login(username="test_user", password="1q2w#E$R")
         self.assertTrue(open("contract.log", "r"))
-    

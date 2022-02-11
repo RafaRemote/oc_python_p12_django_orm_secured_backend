@@ -20,7 +20,13 @@ class ContractViewSet(viewsets.ModelViewSet):
     serializer_class = ContractSerializer
     permission_classes = [IsAuthenticated, IsSales]
     http_method_names = ["get", "patch", "post"]
-
+    filterset_fields = [
+        "account__last_name",
+        "account__email",
+        "date_created",
+        "amount",
+    ]
+    search_fields = ["account__last_name", "account__email", "date_created", "amount"]
     logger.info("ContractViewSet allowed HTTP methods {}".format(http_method_names))
 
     def get_queryset(self):

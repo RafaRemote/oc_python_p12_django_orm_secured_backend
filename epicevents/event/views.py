@@ -18,7 +18,8 @@ class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
     permission_classes = [IsAuthenticated, IsSupport]
     http_method_names = ["get", "put", "patch"]
-
+    filterset_fields = ["account__last_name", "account__email", "date_created"]
+    search_fields = ["account__last_name", "account__email", "date_created"]
     logger.info("EventViewSet allowed HTTP methods {}".format(http_method_names))
 
     def get_queryset(self):

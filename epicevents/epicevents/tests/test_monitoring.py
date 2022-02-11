@@ -7,6 +7,10 @@ class MonitoringAPITests(TestCase):
 
     def test_monitoring(self):
         """\u001b[45m Check There is a monitoring section on admin site\u001b[0m"""
-        User.objects.create_user(username="test_user", role="management", password="1q2w#E$R")
+        User.objects.create_user(
+            username="test_user", role="management", password="1q2w#E$R"
+        )
         self.client.login(username="test_user", password="1q2w#E$R")
-        self.assertTrue(self.client.get("/admin/drf_api_logger/apilogsmodel/").status_code == 200)
+        self.assertTrue(
+            self.client.get("/admin/drf_api_logger/apilogsmodel/").status_code == 200
+        )
