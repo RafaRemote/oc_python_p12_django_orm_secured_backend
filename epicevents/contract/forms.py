@@ -15,9 +15,7 @@ class ContractCreationForm(forms.ModelForm):
     def save(self, commit=True):
         contract = super().save(commit=False)
         related_account = Account.objects.get(id=contract.account.id)
-        contract.sales_contact = User.objects.get(
-            id=related_account.sales_contact.id
-        )
+        contract.sales_contact = User.objects.get(id=related_account.sales_contact.id)
         contract.amount = round(contract.__dict__["amount"], 2)
         if contract.__dict__["status"]:
             event = apps.get_model(app_label="event", model_name="Event")
