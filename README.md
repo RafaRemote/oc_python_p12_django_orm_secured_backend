@@ -236,6 +236,7 @@ The API is secured, based on docs provided, following requirements are fulfilled
 => Logging: 3 files will be created in the root folder when running the application: account.log, contract.log, event.log.  
 => Monitoring: in the Django administration site there is now a DRF API Logger section.  
 
+API Documentation:
 [Postman documentation](https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9)
 
 
@@ -255,7 +256,7 @@ In the tables, you will find what are the purposes of the tests.
 | Django                       | 3.0+           | blue                            |
 | PostgreSQL                   | 12.0+          | blue                            |
 
-#### Tests for Feature 2 / Adds a connexion page for users
+#### Tests for Feature 2 / Add connexion page for users
 
 | Item                                          | color code in the cli           | 
 |-----------------------------------------------|---------------------------------|
@@ -265,7 +266,7 @@ In the tables, you will find what are the purposes of the tests.
 | admin page is accessible                      | magenta                         |
 | only managers can access admin page           | magenta                         |
 
-#### Tests for Feature 3 / Adds model
+#### Tests for Feature 3 / Add models
 
 | Model existence                               | color code in the cli           | 
 |-----------------------------------------------|---------------------------------|
@@ -274,12 +275,23 @@ In the tables, you will find what are the purposes of the tests.
 | Event                                         | yellow                          |
 | Status                                        | yellow                          |
 
-#### Tests for Feature 4 / Adds django groups
+#### Tests for Feature 4 / Add django groups
 
 | Groups Authorizationos                        | color code in the cli           | 
 |-----------------------------------------------|---------------------------------|
 | Sales                                         | cyan                            |
 | Support                                       | cyan                            |
+
+#### Tests for Feature 5 / API: endpoints, methods and permissions
+
+| Groups Authorizationos                        | color code in the cli           | 
+|-----------------------------------------------|---------------------------------|
+| API endpoint exist for Account/Contract/Event | white text / pink background    |
+| Security: allowed/disabled methods            | white text / pink background    |
+| Security: permissions are configured          | white text / pink background    |
+| Logging is done                               | white text / pink background    |
+| Monitoring is done                            | white text / pink background    |
+
 
 #### Run the tests
 
