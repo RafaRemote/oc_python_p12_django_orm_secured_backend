@@ -18,7 +18,8 @@ The 6 first features have been developed according to the technical requirements
 |[8](#optimization) | Optimization: propositions                                   |
 
 
-### Feature one: app uses Django and PostgreSQL
+###FEATURE ONE
+###App uses Django and PostgreSQL
 
 app uses:
 
@@ -75,7 +76,8 @@ _the root folder is the directory 'epicevents' containing the manage.py file_
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
 
-### Feature two: connexion page for users
+###FEATURE TWO
+###Connexion page for users
 
 ### Migrations
 
@@ -141,7 +143,8 @@ On the admin page you can create users.
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
 
-### Feature three: application handles new models
+###FEATURE THREE
+###Application handles new models
 
 There is four new apps in this project.  
 Four new main models are handled by the application, they have the same name as the apps.  
@@ -176,7 +179,8 @@ The cannot:
 - Delete an Event. Event is deleted when the linked contract it deleted.  
 - Delete a status. Event has always a status linked to them.
 
-## Feature four: application handles new groups
+###FEATURE FOUR
+###Application handles new groups
 
 There is two groups:
 - sales team
@@ -205,7 +209,8 @@ User got the permissions that are assigned to their group.
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-### Feature five: API
+###FEATURE FIVE
+###API
 
 API built using Django REST framework
 
@@ -234,7 +239,8 @@ The API is secured, based on docs provided, following requirements are fulfilled
 [Postman documentation](https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9)
 
 
-### Feature six: soon
+###FEATURE SIX
+###Soon
 
 
 ### Tests
@@ -283,6 +289,3 @@ In the Command Line Interface:
 |--------------------------------------------|--------------------|----------------------------------|
 | run tests                                  | root               | ```python manage.py test```      |
 | run tests with verbose option and colors   | root               | ```python manage.py test -v 2``` |
-
-
-### Optimization: soon
