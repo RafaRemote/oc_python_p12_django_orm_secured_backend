@@ -82,10 +82,10 @@ You can let the server run in the first terminal and open a second terminal.
 A custom user model have been created.  
 In order to save the changes to the database type:  
 
-| Comment                                    | Folder             | Instruction                                                 |
-|--------------------------------------------|--------------------|-------------------------------------------------------------|
-| prepare the migration files                | root               | ```python manage.py makemigrations```                       |
-| migrate to the database                    | root               | ```python manage.py migrate```                              |
+| Comment                                    | Folder             | Instruction                                                               |
+|--------------------------------------------|--------------------|---------------------------------------------------------------------------|
+| prepare the migration files                | root               | ```python manage.py makemigrations users account contract event status``` |
+| migrate to the database                    | root               | ```python manage.py migrate```                                            |
 
 
 ### Access to admin login page
