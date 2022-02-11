@@ -1,6 +1,4 @@
-from django.test import TestCase, Client
-
-c = Client()
+from django.test import TestCase
 
 
 class EventAPITests(TestCase):
@@ -8,4 +6,4 @@ class EventAPITests(TestCase):
 
     def test_event_endpoint(self):
         """\u001b[45m Check There is an Event endpoint\u001b[0m"""
-        self.assertTrue(c.get("/event/").status_code == 403)
+        self.assertTrue(self.client.get("/event/").status_code == 401)
