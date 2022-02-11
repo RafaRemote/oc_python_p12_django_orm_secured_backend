@@ -154,14 +154,6 @@ On the admin main page you will see the presence of these four models.
 | Event                               |
 | Status                              |
 
-#### Migrations
-
-In the CLI:
-
-| Comment                         | Folder    | Instruction to type                                                    |
-|---------------------------------|-----------|------------------------------------------------------------------------|
-| prepare the migration files     | root      | ```python manage.py makemigrations account contract event status```    |
-| migrate to the database         | root      | ```python manage.py migrate```                                         |
 
 #### Usage
 
@@ -169,12 +161,12 @@ In the admin site, providing that you are a superuser you can now:
 - Create, Read, Update or Delete an Account,
 - Create, Read, Update or Delete a Contract,
 - Read, Update an Event,
-- Create a Status.
+- Create, Read, Update a Status.
 
 The cannot:
 - Create an Event. Event is automatically created when a contract is signed.  
 - Delete an Event. Event is deleted when the linked contract is deleted.  
-- Delete a status. Event has always a status linked to them.
+- Delete a Status. Event has always a status linked to them.
 
 ###FEATURE FOUR
 ###Application handles new groups
