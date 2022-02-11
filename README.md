@@ -4,7 +4,7 @@
 
 ## Summary
 
-The 6 first features have been developed according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
+6 features have been developed according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
 
 | #                 | Title                                                        |
 |-------------------|--------------------------------------------------------------|
@@ -13,9 +13,8 @@ The 6 first features have been developed according to the technical requirements
 |[3](#feature-three)| Feature three: adds models Account, Contract, Event, Status  |
 |[4](#feature-four) | Feature four: adds two django groups with permissions        |
 |[5](#feature-five) | Feature five: API                                            |
-|[6](#feature-six)  | Feature six: (soon)                                          |
+|[6](#feature-six)  | Feature six: search and filters                              |
 |[7](#tests)        | Tests: tests for all the implemented features                |
-|[8](#optimization) | Optimization: propositions                                   |
 
 
 ###FEATURE ONE
@@ -28,7 +27,6 @@ app uses:
 - PostgreSQL database(version 12.0+)
 
 #### Installation
-
 
 In a Command Line Interface:
 
@@ -74,7 +72,6 @@ _the root folder is the directory 'epicevents' containing the manage.py file_
 | run the server                             | root               | ```python manage.py runserver```                           |
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
-
 
 ###FEATURE TWO
 ###Connexion page for users
@@ -176,7 +173,7 @@ In the admin site, providing that you are a superuser you can now:
 
 The cannot:
 - Create an Event. Event is automatically created when a contract is signed.  
-- Delete an Event. Event is deleted when the linked contract it deleted.  
+- Delete an Event. Event is deleted when the linked contract is deleted.  
 - Delete a status. Event has always a status linked to them.
 
 ###FEATURE FOUR
@@ -241,12 +238,30 @@ API Documentation:
 
 
 ###FEATURE SIX
-###Soon
+###Search and filters
+
+Search and filters are enabled on the API endpoints.
+
+
+| Endpoint                       | /account/                                                   |
+|--------------------------------|-------------------------------------------------------------|
+| search based on                | last_name / email                                           |
+| example URL + query parameters | /account/?search=                                           |
+
+| Endpoint                       | /contract/                                                  |
+|--------------------------------|-------------------------------------------------------------|
+| search based on                | account__last_name / account__email / date_created / amount |
+| example URL + query parameters | /account/?search=                                           |
+
+| Endpoint                       | /event/                                                     |
+|--------------------------------|-------------------------------------------------------------|
+| search based on                | account__last_name / account__email / event_date            |
+| example URL + query parameters | /event/?search=                                             |
 
 
 ### Tests
 
-In the tables, you will find what are the purposes of the tests.
+In the next tables, you will find what are the purposes of the tests.
 
 #### Tests for feature 1 / App uses Django and PostgreSQL
 
@@ -284,13 +299,21 @@ In the tables, you will find what are the purposes of the tests.
 
 #### Tests for Feature 5 / API: endpoints, methods and permissions
 
-| Groups Authorizationos                        | color code in the cli           | 
+| Items                                         | color code in the cli           | 
 |-----------------------------------------------|---------------------------------|
 | API endpoint exist for Account/Contract/Event | white text / pink background    |
 | Security: allowed/disabled methods            | white text / pink background    |
 | Security: permissions are configured          | white text / pink background    |
 | Logging is done                               | white text / pink background    |
 | Monitoring is done                            | white text / pink background    |
+
+#### Tests for Feature 6 / search and filters
+
+| Items                                           | color code in the cli         | 
+|-------------------------------------------------|-------------------------------|
+| API endpoint account: search and filters exist  | white text / blue background  |
+| API endpoint contract: search and filters exist | white text / blue background  |
+| API endpoint event: search and filters exist    | white text / blue background  |
 
 
 #### Run the tests
