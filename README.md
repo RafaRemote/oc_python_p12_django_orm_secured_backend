@@ -1,12 +1,16 @@
-# dapy_p12_epic_events
+# Openclassrooms Path: Python Developer
+# Project n.12: Develop a secured back-end architecture using Django ORM
+## API built on top of a Djano App for a CRM Software(Epic-Events)
 
 ## Quality Assurance Branch
 
 Coverage feature added.
 
-## Installation
+#### Installation
 
 In a Command Line Interface:
+
+_the root folder is the directory 'epicevents' containing the manage.py file_
 
 | Comment                                    | Folder                | Instruction                                                             |
 |--------------------------------------------|-----------------------|-------------------------------------------------------------------------|
