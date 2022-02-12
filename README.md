@@ -1,6 +1,6 @@
 # Openclassrooms Path: Python Developer
 # Project n.12: Develop a secured back-end architecture using Django ORM
-## API built on top of a Djano App for a CRM Software(Epic-Events)
+## API built on top of a Django App for a CRM Software(Epic-Events)
 
 ## Summary
 
@@ -199,7 +199,7 @@ User got the permissions that are assigned to their group.
 | READ UPDATE             | Contract  | the ones of the clients they are assigned to  |
 
 
-**SUPPORT TEAM PERSMISSIONS**
+**SUPPORT TEAM PERMISSIONS**
 
 | Action           | Object    | Notes                                           |
 |------------------|-----------|-------------------------------------------------|
