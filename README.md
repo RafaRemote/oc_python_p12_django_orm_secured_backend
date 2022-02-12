@@ -1,10 +1,14 @@
 # Openclassrooms Path: Python Developer
 # Project n.12: Develop a secured back-end architecture using Django ORM
-## CRM Software Epic-Events 
+## API built on top of a Djano App for a CRM Software(Epic-Events)
 
 ## Summary
 
+Follow the instructions included in chapters Feature one and two to be able to use the Django admin site and to consume the API.  
+
 6 features have been developed according to the technical requirements presented in the [kanban](https://www.notion.so/5a4642c14eef48c78c9e1b98a8e0a3fc?v=12d25b7081ba436a9e06f0e99cdcae25).
+
+
 
 | #                 | Title                                                        |
 |-------------------|--------------------------------------------------------------|
@@ -17,8 +21,8 @@
 |[7](#tests)        | Tests: tests for all the implemented features                |
 
 
-###FEATURE ONE  
-###App uses Django and PostgreSQL
+### FEATURE ONE  
+### App uses Django and PostgreSQL
 
 app uses:
 
@@ -73,8 +77,8 @@ _the root folder is the directory 'epicevents' containing the manage.py file_
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
-###FEATURE TWO  
-###Connexion page for users
+### FEATURE TWO  
+### Connexion page for users
 
 ### Migrations
 
@@ -90,7 +94,11 @@ In order to save the changes to the database type:
 
 ### Access to admin login page
 
-In the root folder, typer: ```python load.py```
+You have two options:
+
+1st option: in the CLI you can type: ```python manage.py createsuperuser``` and follow the instructions. You will need to provide a username and a password.
+
+2nd option: in the CLI type: ```python load.py```
 
 It will populate the database with the data below:
 
@@ -140,8 +148,8 @@ On the admin page you can create users.
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
 
-###FEATURE THREE  
-###Application handles new models
+### FEATURE THREE  
+### Application handles new models
 
 There is four new apps in this project.  
 Four new main models are handled by the application, they have the same name as the apps.  
@@ -168,8 +176,8 @@ The cannot:
 - Delete an Event. Event is deleted when the linked contract is deleted.  
 - Delete a Status. Event has always a status linked to them.
 
-###FEATURE FOUR  
-###Application handles new groups
+### FEATURE FOUR  
+### Application handles new groups
 
 There is two groups:
 - sales team
@@ -183,11 +191,12 @@ User got the permissions that are assigned to their group.
 
 **SALES TEAM PERMISSIONS**
 
-| Action           | Object    | Notes                                         |
-|------------------|-----------|-----------------------------------------------|
-| CREATE           | Account   |                                               |
-| READ UPDATE      | Account   | the ones they are assigned to                 |
-| READ UPDATE      | Contract  | the ones of the clients they are assigned to  |
+| Action                  | Object    | Notes                                         |
+|-------------------------|-----------|-----------------------------------------------|
+| CREATE                  | Account   |                                               |
+| READ UPDATE             | Account   | the ones they are assigned to                 |
+| CREATE                  | Contract  |                                               |
+| READ UPDATE             | Contract  | the ones of the clients they are assigned to  |
 
 
 **SUPPORT TEAM PERSMISSIONS**
@@ -198,8 +207,8 @@ User got the permissions that are assigned to their group.
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-###FEATURE FIVE  
-###API
+### FEATURE FIVE  
+### API
 
 API built using Django REST framework
 
@@ -229,8 +238,8 @@ API Documentation:
 [Postman documentation](https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9)
 
 
-###FEATURE SIX  
-###Search and filters
+### FEATURE SIX  
+### Search and filters
 
 Search and filters are enabled on the API endpoints.
 
