@@ -17,7 +17,7 @@
 |[7](#tests)        | Tests: tests for all the implemented features                |
 
 
-###FEATURE ONE
+###FEATURE ONE  
 ###App uses Django and PostgreSQL
 
 app uses:
@@ -73,7 +73,7 @@ _the root folder is the directory 'epicevents' containing the manage.py file_
 
 Then, in your web browser navigate to http://127.0.0.1:8000/
 
-###FEATURE TWO
+###FEATURE TWO  
 ###Connexion page for users
 
 ### Migrations
@@ -140,7 +140,7 @@ On the admin page you can create users.
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
 
-###FEATURE THREE
+###FEATURE THREE  
 ###Application handles new models
 
 There is four new apps in this project.  
@@ -168,7 +168,7 @@ The cannot:
 - Delete an Event. Event is deleted when the linked contract is deleted.  
 - Delete a Status. Event has always a status linked to them.
 
-###FEATURE FOUR
+###FEATURE FOUR  
 ###Application handles new groups
 
 There is two groups:
@@ -198,7 +198,7 @@ User got the permissions that are assigned to their group.
 | READ             | Account   | the ones that they are assigned to their events |
 
 
-###FEATURE FIVE
+###FEATURE FIVE  
 ###API
 
 API built using Django REST framework
@@ -229,7 +229,7 @@ API Documentation:
 [Postman documentation](https://documenter.getpostman.com/view/12917774/UVeKq5Zd#d6b83df4-66bd-446d-8f19-8b9ef21ff1f9)
 
 
-###FEATURE SIX
+###FEATURE SIX  
 ###Search and filters
 
 Search and filters are enabled on the API endpoints.
