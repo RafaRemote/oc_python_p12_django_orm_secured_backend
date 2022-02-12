@@ -1,6 +1,6 @@
 # Openclassrooms Path: Python Developer
 # Project n.12: Develop a secured back-end architecture using Django ORM
-## API built on top of a Djano App for a CRM Software(Epic-Events)
+## API built on top of a Django App for a CRM Software(Epic-Events)
 
 ## Quality Assurance Branch
 
