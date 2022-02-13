@@ -2,6 +2,7 @@ from django.test import TestCase
 from users.models import EpicUser as User
 from contract.models import Contract
 from account.models import Account
+from rest_framework.test import APITestCase
 
 
 class ContractAPITests(TestCase):
@@ -41,3 +42,21 @@ class ContractAPITests(TestCase):
         res2 = self.client.get("/contract/?search=doe")
         self.assertTrue("1000" in res.content.decode())
         self.assertTrue("john doe" in res2.content.decode())
+
+
+class ContractTest(APITestCase):
+    def test_contract_sales_contact_is_request_user(self):
+        """\u001b[42m Check contract sales_contact \u001b[0m"""
+        user = User.objects.create_user(
+            username="test_user", role="sales", password="1q2w#E$R"
+        )
+        self.client.login(username="test_user", password="1q2w#E$R")
+        account = Account.objects.create(
+            first_name="john", last_name="doe", email="john@doe.com", sales_contact=user
+        )
+        account = Account.objects.latest("first_name")
+
+        data = {"account": str(account.id), "payment_due": "2030-10-10"}
+        self.client.post("/contract/", data)
+        contract = Contract.objects.latest("id")
+        self.assertTrue(contract.sales_contact.username == user.username)

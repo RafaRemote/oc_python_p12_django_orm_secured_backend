@@ -1,7 +1,6 @@
 from django import forms
 from .models import EpicUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.core.exceptions import ValidationError
 from .groups import dispatch_user
 import logging
 

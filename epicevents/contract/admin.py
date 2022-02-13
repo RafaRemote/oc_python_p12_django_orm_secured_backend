@@ -8,7 +8,7 @@ from datetime import datetime
 class ContractAdmin(admin.ModelAdmin):
     form = ContractCreationForm
 
-    list_display = ("account", "status", "amount", "sales_contact", "payment_due")
+    list_display = ("pk", "account", "status", "amount", "sales_contact", "payment_due")
 
     list_filter = (
         "account",

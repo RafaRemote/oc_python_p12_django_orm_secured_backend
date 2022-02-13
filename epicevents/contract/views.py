@@ -1,6 +1,8 @@
 from rest_framework import viewsets
 from .serializers import ContractSerializer
 from .models import Contract
+from users.models import EpicUser as User
+from account.models import Account
 from epicevents.permissions import IsSales
 from rest_framework.permissions import IsAuthenticated
 from django.core.exceptions import PermissionDenied
@@ -37,14 +39,28 @@ class ContractViewSet(viewsets.ModelViewSet):
         return Contract.objects.filter(sales_contact=self.request.user).order_by("id")
 
     def update(self, request, *args, **kwargs):
-        partial = kwargs.pop("partial", False)
         contract = Contract.objects.get(pk=self.kwargs["pk"])
+        print(contract.sales_contact)
+        print(request.user)
         if contract.sales_contact.id == request.user.id:
-            serializer = self.get_serializer(
-                contract, data=request.data, partial=partial
-            )
+            serializer = self.get_serializer(contract, data=request.data)
             serializer.is_valid(raise_exception=True)
             self.perform_update(serializer)
+            return Response(serializer.data)
+        else:
+            raise PermissionDenied
+
+    def create(self, request):
+        account = Account.objects.get(pk=request.POST["account"])
+        if account.sales_contact == request.user:
+            user = User.objects.get(pk=request.user.id)
+            contract = Contract.objects.create(
+                account=account,
+                sales_contact=user,
+                payment_due=request.POST["payment_due"],
+            )
+            serializer = self.get_serializer(contract)
+
             return Response(serializer.data)
         else:
             raise PermissionDenied
