@@ -9,6 +9,7 @@ class AccountAdmin(admin.ModelAdmin):
     list_display = (
         "first_name",
         "last_name",
+        "email",
         "sales_contact",
         "date_created",
         "date_updated",

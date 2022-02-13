@@ -6,7 +6,9 @@ def create_groups():
     add_permission(sales_team)
     support_team, c = Group.objects.get_or_create(name="support_team")
     add_permission(support_team)
-    return [sales_team, support_team]
+    management_team, c = Group.objects.get_or_create(name="management_team")
+    add_permission(management_team)
+    return [sales_team, support_team, management_team]
 
 
 def add_permission(team):
@@ -20,6 +22,8 @@ def add_permission(team):
         ]
     elif "support" in team.name:
         perms = ["view_event", "change_event", "view_account"]
+    elif "management" in team.name:
+        perms = [perm.codename for perm in Permission.objects.all()]
     [team.permissions.set(Permission.objects.get(codename=perm) for perm in perms)]
 
 
