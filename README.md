@@ -66,17 +66,6 @@ Assign the values of your database settings freshly created to the variables bel
 | DB_HOST                               |
 | DB_PORT                               |
 
-#### Run the application
-
-_the root folder is the directory 'epicevents' containing the manage.py file_
-
-| Comment                                    | Folder             | Instruction                                                |
-|--------------------------------------------|--------------------|------------------------------------------------------------|
-| change to root directory                   | chosen folder      | ```cd epicevents```                                        |
-| run the server                             | root               | ```python manage.py runserver```                           |
-
-Then, in your web browser navigate to http://127.0.0.1:8000/
-
 ### FEATURE TWO  
 ### Connexion page for users
 
@@ -142,11 +131,20 @@ Only the users with a management role can access the admin page.
 They are considered as superusers.  
 You can access the admin page with the username and the password of the user.  
 
-To login to admin page navigate with your web browser to http://127.0.0.1:8000/admin/  
-
 On the admin page you can create users.  
 You can try to create users for management, sales and support then try to login to the admin site.  
 You will see that only the users with a management role can access the admin site.  
+
+#### Run the application
+
+_the root folder is the directory 'epicevents' containing the manage.py file_
+
+| Comment                                    | Folder             | Instruction                                                |
+|--------------------------------------------|--------------------|------------------------------------------------------------|
+| change to root directory                   | chosen folder      | ```cd epicevents```                                        |
+| run the server                             | root               | ```python manage.py runserver```                           |
+
+To login to admin page navigate with your web browser to http://127.0.0.1:8000/admin/  
 
 ### FEATURE THREE  
 ### Application handles new models
