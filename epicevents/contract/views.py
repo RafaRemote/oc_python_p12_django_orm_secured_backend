@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .serializers import ContractSerializer
 from .models import Contract
+from event.models import Event
 from users.models import EpicUser as User
 from account.models import Account
 from epicevents.permissions import IsSales
@@ -40,8 +41,8 @@ class ContractViewSet(viewsets.ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         contract = Contract.objects.get(pk=self.kwargs["pk"])
-        print(contract.sales_contact)
-        print(request.user)
+        if contract.sales_contact.id == request.user.id and request.POST["status"]:
+            Event.objects.create(account=contract.account)
         if contract.sales_contact.id == request.user.id:
             serializer = self.get_serializer(contract, data=request.data)
             serializer.is_valid(raise_exception=True)
